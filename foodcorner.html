@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Corner by Zab</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: #f5f1e8;
+            color: #333;
+        }
+        /* BANNER LANG MAY PIC */
+        .banner {
+            background-image: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.7)), 
+                              url("https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1200&q=80");
+            background-size: cover;
+            background-position: center;
+            padding: 80px 20px;
+            text-align: center;
+            color: white;
+        }
+        .banner h1 {
+            margin: 0;
+            font-size: 48px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            color: #ff6f00;
+            text-shadow: 2px 2px 8px #000;
+        }
+        .banner p {
+            font-size: 20px;
+            margin-top: 10px;
+            font-weight: 400;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: -40px auto 50px;
+            padding: 0 20px;
+        }
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 35px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            border-top: 6px solid #ff6f00;
+        }
+        .card h2 {
+            text-align: center;
+            color: #ff6f00;
+            margin-bottom: 25px;
+            font-size: 30px;
+        }
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .menu-item {
+            background: #fff3e0;
+            padding: 12px;
+            border-radius: 10px;
+            font-weight: 600;
+            color: #e65100;
+        }
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        label {
+            display: block;
+            color: #ff6f00;
+            font-weight: 600;
+            margin: 15px 0 6px;
+            font-size: 15px;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            border-radius: 10px;
+            border: 2px solid #ffe0b2;
+            background: #fffdf9;
+            font-size: 15px;
+            font-family: 'Poppins', sans-serif;
+        }
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #ff6f00;
+        }
+        select {
+            background: #ff6f00;
+            color: white;
+            font-weight: 600;
+        }
+        .radio-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin: 15px 0 20px;
+        }
+        .radio-section label {
+            background: #ffe0b2;
+            padding: 10px 15px;
+            border-radius: 25px;
+            margin: 0;
+            font-weight: 500;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+        .radio-section input {
+            width: auto;
+            margin-right: 8px;
+        }
+        textarea { height: 100px; }
+        .actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+        .btn {
+            flex: 1;
+            padding: 15px;
+            font-size: 17px;
+            font-weight: 700;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+        }
+        .btn-submit {
+            background: #ff6f00;
+            color: white;
+        }
+        .btn-submit:hover {
+            background: #e65100;
+        }
+        .btn-reset {
+            background: #bdbdbd;
+            color: white;
+        }
+        @media (max-width: 700px) {
+            .form-row, .menu-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- BANNER WITH BACKGROUND -->
+    <div class="banner">
+        <h1>FOOD CORNER</h1>
+        <p>by Zab | Masarap na, Mura pa!</p>
+    </div>
+
+    <!-- FORM CARD -->
+    <div class="container">
+        <div class="card">
+            <h2>Order Now</h2>
+
+            <div class="menu-grid">
+                <div class="menu-item">KwekKwek ₱25</div>
+                <div class="menu-item">Beef Dog ₱35</div>
+                <div class="menu-item">Spaghetti ₱80</div>
+                <div class="menu-item">Fried Chicken ₱120</div>
+                <div class="menu-item">Balot ₱30</div>
+                <div class="menu-item">Fish Ball ₱20</div>
+            </div>
+
+            <form>
+                <div class="form-row">
+                    <div>
+                        <label>First Name</label>
+                        <input type="text" name="firstName" required>
+                    </div>
+                    <div>
+                        <label>Last Name</label>
+                        <input type="text" name="surname" required>
+                    </div>
+                </div>
+
+                <label>Age</label>
+                <input type="number" name="age" required>
+
+                <label>Choose Meal</label>
+                <select name="meal" required>
+                    <option value="">-- Select --</option>
+                    <option>KwekKwek</option>
+                    <option>Beef Dog</option>
+                    <option>Spaghetti</option>
+                    <option>Fried Chicken</option>
+                    <option>Balot</option>
+                    <option>Fish Ball</option>
+                </select>
+
+                <label>Service Type</label>
+                <div class="radio-section">
+                    <label><input type="radio" name="dining" value="Dine In" required> Dine In</label>
+                    <label><input type="radio" name="dining" value="Take Out"> Take Out</label>
+                    <label><input type="radio" name="dining" value="Delivery"> Delivery</label>
+                    <label><input type="radio" name="dining" value="Private Table"> Private Table</label>
+                    <label><input type="radio" name="dining" value="Outdoor Dining"> Outdoor Dining</label>
+                </div>
+
+                <label>Message</label>
+                <textarea name="message" placeholder="Special request here..."></textarea>
+
+                <div class="actions">
+                    <button type="submit" class="btn btn-submit">Submit Order</button>
+                    <button type="reset" class="btn btn-reset">Reset</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

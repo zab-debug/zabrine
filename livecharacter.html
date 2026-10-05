@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Character Counter</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #222;
+            background-color: white;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin: 18px 8px;
+        }
+
+        .container {
+            width: 100%;
+        }
+
+        .input-area {
+            display: flex;
+            align-items: flex-start;
+            gap: 5px;
+            margin: 10px 5px;
+        }
+
+        textarea {
+            width: 330px;
+            height: 60px;
+            padding: 6px;
+            font-size: 12px;
+            resize: none;
+            border: 2px solid #d8b83d;
+            outline: none;
+        }
+
+        .counter {
+            margin-left: 5px;
+            font-size: 12px;
+        }
+
+        .preview-title {
+            margin: 10px 5px 5px;
+            font-size: 12px;
+        }
+
+        .preview {
+            border-top: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
+            min-height: 45px;
+            padding: 8px;
+            font-size: 12px;
+            white-space: pre-wrap;
+        }
+
+        .counts {
+            margin: 8px;
+            font-size: 12px;
+        }
+
+        .counts h3 {
+            font-size: 13px;
+            margin: 5px 0;
+        }
+
+        .count-row {
+            display: flex;
+            width: 70px;
+            line-height: 17px;
+        }
+
+        .character {
+            width: 45px;
+        }
+
+        .number-count {
+            margin-top: 8px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Live Character Counter</h1>
+
+        <div class="input-area">
+            <label for="message">Enter your message:</label>
+
+            <textarea
+                id="message"
+                maxlength="150"
+                placeholder=""
+            ></textarea>
+        </div>
+
+        <div class="counter">
+            <span id="charCount">0</span> / 150
+        </div>
+
+        <div class="preview-title">
+            Live Preview:
+        </div>
+
+        <div class="preview" id="preview"></div>
+
+        <div class="counts">
+
+            <h3>Alphabet Count</h3>
+
+            <div id="alphabetCount"></div>
+
+            <div class="number-count">
+                <h3>Number Count</h3>
+                <div id="numberCount"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script>
+        const message = document.getElementById("message");
+        const charCount = document.getElementById("charCount");
+        const preview = document.getElementById("preview");
+
+        const alphabetCount = document.getElementById("alphabetCount");
+        const numberCount = document.getElementById("numberCount");
+
+
+        
+        function createAlphabetList() {
+
+            alphabetCount.innerHTML = "";
+
+            for (let i = 65; i <= 90; i++) {
+
+                const letter = String.fromCharCode(i);
+
+                const row = document.createElement("div");
+                row.className = "count-row";
+
+                row.innerHTML = `
+                    <span class="character">${letter}</span>
+                    <span id="letter-${letter}">0</span>
+                `;
+
+                alphabetCount.appendChild(row);
+            }
+        }
+
+
+        
+        function createNumberList() {
+
+            numberCount.innerHTML = "";
+
+            for (let i = 0; i <= 9; i++) {
+
+                const row = document.createElement("div");
+                row.className = "count-row";
+
+                row.innerHTML = `
+                    <span class="character">${i}</span>
+                    <span id="number-${i}">0</span>
+                `;
+
+                numberCount.appendChild(row);
+            }
+        }
+
+
+        
+        message.addEventListener("input", function () {
+
+            const text = message.value;
+
+            
+            charCount.textContent = text.length;
+
+            
+            preview.textContent = text;
+
+            
+            for (let i = 65; i <= 90; i++) {
+
+                const letter = String.fromCharCode(i);
+
+                document.getElementById(
+                    "letter-" + letter
+                ).textContent = 0;
+            }
+
+            
+            for (let i = 0; i <= 9; i++) {
+
+                document.getElementById(
+                    "number-" + i
+                ).textContent = 0;
+            }
+
+
+            
+            for (let char of text) {
+
+                
+                if (/[a-zA-Z]/.test(char)) {
+
+                    const letter = char.toUpperCase();
+
+                    const element =
+                        document.getElementById(
+                            "letter-" + letter
+                        );
+
+                    element.textContent =
+                        Number(element.textContent) + 1;
+                }
+
+
+                
+                if (/[0-9]/.test(char)) {
+
+                    const element =
+                        document.getElementById(
+                            "number-" + char
+                        );
+
+                    element.textContent =
+                        Number(element.textContent) + 1;
+                }
+            }
+
+        });
+
+
+        
+        createAlphabetList();
+        createNumberList();
+
+    </script>
+
+</body>
+</html>

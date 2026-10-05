@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery | zbrn</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <div class="logo">zbrn</div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About Me</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="gallery.html" class="active">Gallery</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
+
+  <section>
+    <h2 class="section-title">Visual Gallery</h2>
+    <p style="color:var(--text-dim); margin-bottom:2rem;">Photos and videos — click to view ▶</p>
+    
+    <div class="gallery-grid">
+      <!-- Photo 1 -->
+      <div class="gallery-item" data-type="photo" data-title="Coding & Tech" style="padding:0;">
+        <img src="photo1.jpeg" alt="Coding & Tech" style="width:100%; height:100%; object-fit:cover; border-radius:12px;">
+      </div>
+
+      <!-- Photo 2 -->
+      <div class="gallery-item" data-type="photo" data-title="Basketball 🏀" style="padding:0;">
+        <img src="photo2.jpeg" alt="Basketball" style="width:100%; height:100%; object-fit:cover; border-radius:12px;">
+      </div>
+
+      <!-- Photo 3 -->
+      <div class="gallery-item" data-type="photo" data-title="Learning & Growing" style="padding:0;">
+        <img src="photo3.jpeg" alt="Learning" style="width:100%; height:100%; object-fit:cover; border-radius:12px;">
+      </div>
+
+      <!-- Photo 4 -->
+      <div class="gallery-item" data-type="photo" data-title="Digital World" style="padding:0;">
+        <img src="photo4.jpeg" alt="Digital World" style="width:100%; height:100%; object-fit:cover; border-radius:12px;">
+      </div>
+
+      <!-- Photo 5 -->
+      <div class="gallery-item" data-type="photo" data-title="Goals & Future" style="padding:0;">
+        <img src="photo5.jpeg" alt="Goals & Future" style="width:100%; height:100%; object-fit:cover; border-radius:12px;">
+      </div>
+
+      <!-- Photo 6 -->
+      <div class="gallery-item" data-type="photo" data-title="Everyday IT" style="padding:0;">
+        <img src="photo3.jpeg" alt="Everyday IT" style="width:100%; height:100%; object-fit:cover; border-radius:12px;">
+      </div>
+      
+      <!-- VIDEO — UPDATED to zabrine.mp4 ✅ -->
+      <div class="gallery-item video-card" data-type="video" data-title="My IT Journey">
+        <span class="video-badge">▶ VIDEO</span>
+        <video src="123.mp4" muted loop preload="metadata">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <span class="close-lightbox">&times;</span>
+    <div class="lightbox-content" id="lightbox-content"></div>
+  </div>
+
+  <footer>
+    © 2026 zbrn — Information Technology. All rights reserved.
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
